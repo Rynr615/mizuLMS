@@ -32,7 +32,7 @@ class Course extends Model
     }
 
     public function courseSections(): HasMany {
-        return $this->hasMany(CourseSection::class, 'course_id');
+        return $this->hasMany(CourseSection::class, 'course_id'); 
     }
     
     public function courseStudents(): HasMany {
@@ -44,7 +44,7 @@ class Course extends Model
     }
     
     public function category(): BelongsTo {
-        return $this->belengsTo(Category::class, 'category_id');
+        return $this->belongsTo(Category::class, 'category_id');
     }
 
     public function getContentCountAttribute() {
