@@ -23,7 +23,7 @@ class CourseSection extends Model
         return $this->belongsTo(Course::class, 'course_id');
     }
 
-    public function sectionContent(): HasMany {
+    public function sectionContents(): HasMany {
         return $this->hasMany(SectionContent::class);
     }
 }

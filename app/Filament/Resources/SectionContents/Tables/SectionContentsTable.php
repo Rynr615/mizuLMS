@@ -18,7 +18,8 @@ class SectionContentsTable
     {
         return $table
             ->columns([
-                ImageColumn::make('courseSection.course.thumbnail'),
+                ImageColumn::make('courseSection.course.thumbnail')
+                    ->disk('public'),
                 TextColumn::make('name')
                     ->sortable()
                     ->searchable(),

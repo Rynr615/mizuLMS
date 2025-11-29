@@ -5,9 +5,10 @@ namespace App\Services;
 use App\Repositories\PricingRepositoryInterface;
 use App\Repositories\TransactionRepositoryInterface;
 use App\Models\Pricing;
+use Midtrans\Snap;
 use App\Helpers\TransactionHelper;
-use Illuminate\Support\Facedes\Log;
-use Illuminate\Support\Facedes\Auth;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Auth;
 
 class PaymentService {
     protected $midtransService;
@@ -30,7 +31,7 @@ class PaymentService {
         $grandTotal = $pricing->price + $totalTax;
 
         $params = [
-            'transaction_detail' => [
+            'transaction_details' => [
                 'order_id' => TransactionHelper::generateUniqueTrxId(),
                 'gross_amount' => (int) $grandTotal,
             ],

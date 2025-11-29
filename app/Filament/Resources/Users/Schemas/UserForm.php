@@ -44,6 +44,9 @@ class UserForm
                     ->multiple()
                     ->required(),
                 FileUpload::make('photo')
+                    ->maxSize(5196)
+                    ->disk('public')
+                    ->directory('photos')
                     ->required()
                     ->image(),
             ]);

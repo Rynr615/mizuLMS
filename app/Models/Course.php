@@ -32,9 +32,9 @@ class Course extends Model
     }
 
     public function courseSections(): HasMany {
-        return $this->hasMany(CourseSection::class, 'course_id'); 
+        return $this->hasMany(CourseSection::class, 'course_id');
     }
-    
+
     public function courseStudents(): HasMany {
         return $this->hasMany(CourseStudent::class, 'course_id');
     }
@@ -42,7 +42,7 @@ class Course extends Model
     public function courseMentors(): HasMany {
         return $this->hasMany(CourseMentor::class, 'course_id');
     }
-    
+
     public function category(): BelongsTo {
         return $this->belongsTo(Category::class, 'category_id');
     }

@@ -24,6 +24,10 @@ class CourseForm
                         ->required(),
                     FileUpload::make('thumbnail')
                         ->image()
+                        ->maxSize(5196)
+                        ->disk('public')
+                        ->directory('courses')
+                        ->visibility('public')
                         ->required(),
                 ]),
 

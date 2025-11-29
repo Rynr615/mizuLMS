@@ -8,7 +8,7 @@ use App\Services\PricingService;
 use App\Services\TransactionService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facedes\Log;
-use Illuminate\Support\Facedes\Auth;
+use Illuminate\Support\Facades\Auth;
 
 class FrontController extends Controller
 {
@@ -73,7 +73,7 @@ class FrontController extends Controller
 
             return response()->json(['status' => $transactionStatus]);
         } catch(\Exception $e) {
-            Log::error('Failed to handle Midtrans notification: '. ['error' => e->getMessage()]);
+            Log::error('Failed to handle Midtrans notification', ['error' => $e->getMessage()]);
             return response()->json(['error' => 'Failed to process notification'], 500);
         }
     }

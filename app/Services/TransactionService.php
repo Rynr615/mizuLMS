@@ -6,7 +6,7 @@ use App\Models\Pricing;
 use App\Models\Transaction;
 use App\Repositories\PricingRepositoryInterface;
 use App\Repositories\TransactionRepositoryInterface;
-use Illuminate\Support\Facedes\Auth;
+use Illuminate\Support\Facades\Auth;
 
 class TransactionService {
     protected $pricingRepository;

@@ -19,6 +19,7 @@ class UsersTable
         return $table
             ->columns([
                 ImageColumn::make('photo')
+                    ->disk('public')
                     ->searchable(),
                 TextColumn::make('name')
                     ->searchable(),

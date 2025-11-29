@@ -71,6 +71,6 @@ class User extends Authenticatable implements FilamentUser
         return $this->transactions()
         ->where('is_paid', true)
         ->where('ended_at', '>=', now())
-        ->exist(); //mengembalikan boolean
+        ->exists(); //mengembalikan boolean
     }
 }

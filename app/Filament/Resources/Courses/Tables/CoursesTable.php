@@ -20,6 +20,7 @@ class CoursesTable
         return $table
             ->columns([
                 ImageColumn::make('thumbnail')
+                    ->disk('public')
                     ->searchable(),
                 TextColumn::make('name')
                     ->searchable()

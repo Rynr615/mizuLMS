@@ -27,6 +27,6 @@ class Pricing extends Model
         ->where('user_id', $userId)
         ->where('is_paid', true)
         ->where('ended_at', '>=', now())
-        ->exist();
+        ->exists();
     }
 }

@@ -22,14 +22,14 @@ Route::middleware('auth')->group(function () {
         ->name('dashboard.subscriptions');
 
         // model binding -> default menggunakan id
-        Route::get('/dashboard/subscription/{transaction}', [CourseController::class, 'subscription_details'])
+        Route::get('/dashboard/subscription/{transaction}', [DashboardController::class, 'subscription_details'])
         ->name('dashboard.subscription.details');
-        
+
         // model binding
         Route::get('/dashboard/courses/', [CourseController::class, 'index'])
         ->name('dashboard');
 
-        Route::get('/dashboard/course/{course:slug}', [CourseController::class, 'details'])
+        Route::get('/dashboard/courses/{course:slug}', [CourseController::class, 'details'])
         ->name('dashboard.course.details');
 
         Route::get('/dashboard/search/courses', [CourseController::class, 'search_courses'])

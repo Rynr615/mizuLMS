@@ -5,19 +5,30 @@ namespace App\Services;
 use App\Models\Pricing;
 use Midtrans\Config;
 use Midtrans\Snap;
-use Illuminate\Support\Facedes\Log;
+use Illuminate\Support\Facades\Log;
 use Midtrans\Notification;
 
 class MidtransService {
-    public function __constuct() {
+    public function __construct() {
         Config::$serverKey = config('midtrans.serverKey');
+        Config::$clientKey = config('midtrans.clientKey');
         Config::$isProduction = config('midtrans.isProduction');
         Config::$isSanitized = config('midtrans.isSanitized');
         Config::$is3ds = config('midtrans.is3ds');
-    }
 
-    public function createSnapToken(array  $params):string {
+        Log::info('Midtrans Config Loaded', [
+            'server_key_exists' => !empty(Config::$serverKey),
+            'client_key_exists' => !empty(Config::$clientKey),
+            'is_production' => Config::$isProduction,
+        ]);
+    }
+            // Debug log untuk memastikan config terbaca
+
+    public function createSnapToken(array $params):string {
         try {
+            Log::info('Creating Snap Token with params', $params);
+            $snapToken = Snap::getSnapToken($params);
+            Log::info('Snap Token created successfully', ['token' => $snapToken]);
             return Snap::getSnapToken($params);
         } catch(\Exception $e) {
             Log::error('Failed to create Snap Token: ' . $e->getMessage());

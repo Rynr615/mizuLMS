@@ -27,7 +27,7 @@ class Transaction extends Model
 
     protected $casts = [
         'started_at' => 'date',
-        'endec_at' => 'date',
+        'ended_at' => 'date',
     ];
 
     public function pricing(): BelongsTo {
