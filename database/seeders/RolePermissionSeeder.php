@@ -22,7 +22,7 @@ class RolePermissionSeeder extends Seeder
         $studentRole = Role::create([
             'name' => 'student'
         ]);
-        
+
         $mentorRole = Role::create([
             'name' => 'mentor'
         ]);
@@ -30,7 +30,7 @@ class RolePermissionSeeder extends Seeder
         $user = User::create([
             'name' => 'Team Mizu',
             'email' => 'team@mizu.com',
-            'password' => bcrypt('123123123')
+            'password' => bcrypt('m1zuLms9191')
         ]);
         $user->assignRole($adminRole);
     }

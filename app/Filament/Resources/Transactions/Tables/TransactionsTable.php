@@ -25,6 +25,7 @@ class TransactionsTable
         return $table
             ->columns([
                 ImageColumn::make('student.photo')
+                ->disk('public')
                 ->circular(),
                 TextColumn::make('student.name')
                     ->searchable(),

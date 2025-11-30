@@ -3,51 +3,74 @@
 @section('content')
 
     <div class="relative flex justify-center">
-        <div id="backgroundImage" class="absolute top-0 left-0 right-0">
-            <img src="{{ asset('assets/images/backgrounds/success-join.png') }}" alt="image"
-                class="h-[777px] object-cover object-bottom w-full" />
+        <!-- Background -->
+        <div id="backgroundImage" class="absolute inset-0 -z-10">
+            <img src="{{ asset('assets/images/backgrounds/success-join.png') }}"
+                class="min-h-screen w-full object-cover object-bottom" alt="image">
         </div>
+
         <main
-            class="relative mt-[178px] flex flex-col gap-[30px] p-[30px] w-[560px] rounded-[20px] border bg-white border-obito-grey">
-            <img src="{{ asset('assets/images/icons/raising-hands.png') }}" alt="icon" class="size-[60px] shrink-0 mx-auto" />
-            <div class="mx-auto flex w-[500px] flex-col gap-[10px] items-center">
-                <h1 class="text-center font-bold text-[28px] leading-[42px]">Welcome to Class,<br>Upgrade Your New Skills
+            class="relative mt-24 w-full max-w-[560px] rounded-2xl border border-mizu-divider bg-white
+               p-6 sm:p-8 shadow-sm flex flex-col gap-7 mx-4">
+
+            <!-- Icon -->
+            <img src="{{ asset('assets/images/icons/raising-hands.png') }}" class="size-[50px] sm:size-[60px] mx-auto"
+                alt="icon">
+
+            <!-- Heading -->
+            <div class="mx-auto flex w-full sm:w-[500px] flex-col gap-2 text-center">
+                <h1 class="text-[22px] sm:text-[28px] font-bold leading-[32px] sm:leading-[42px] text-mizu-dark">
+                    Welcome to Class,<br class="hidden sm:block">Upgrade Your New Skills
                 </h1>
-                <p class="text-center text-obito-text-secondary leading-[28px]">Mari kita belajar meningkatkan skills
-                    terbaru bersama dengan mentor berpengalaman demi masa depan lebih baik</p>
+                <p class="text-sm sm:text-base leading-[22px] sm:leading-[28px] text-mizu-text">
+                    Mari kita belajar meningkatkan skills terbaru bersama mentor berpengalaman demi masa depan yang lebih
+                    baik
+                </p>
             </div>
-            <div id="card"
-                class="flex items-center pt-[10px] pb-[10px] pl-[10px] pr-4 border border-obito-grey rounded-[20px] gap-4">
-                <div class="flex justify-center items-center overflow-hidden shrink-0 w-[180px] h-[130px] rounded-[14px]">
-                    <img src="{{ Storage::url($course->thumbnail) }}" alt="image" class="w-full h-full object-cover" />
+
+            <!-- Course Card -->
+            <div
+                class="flex flex-col sm:flex-row items-center sm:items-start gap-4 rounded-2xl border border-mizu-divider p-4">
+
+                <div class="w-full sm:w-[180px] h-[150px] sm:h-[130px] rounded-xl overflow-hidden shrink-0">
+                    <img src="{{ Storage::url($course->thumbnail) }}" class="w-full h-full object-cover" alt="thumbnail">
                 </div>
-                <div class="flex flex-col gap-[10px]">
-                    <h2 class="font-bold">{{ $course->name }}</h2>
-                    <div class="flex items-center gap-[6px]">
-                        <img src="{{ asset('assets/images/icons/crown-green.svg') }}" alt="icon" class="size-5 shrink-0" />
-                        <p class="text-sm leading-[21px] text-obito-text-secondary">{{ $course->category->name }}</p>
+
+                <div class="flex flex-col gap-2 w-full text-center sm:text-left">
+                    <h2 class="font-bold text-mizu-dark text-base sm:text-lg">{{ $course->name }}</h2>
+
+                    <div class="flex justify-center sm:justify-start items-center gap-2 text-mizu-text text-sm">
+                        <img src="{{ asset('assets/images/icons/crown-green.svg') }}" class="size-5" alt="">
+                        <span>{{ $course->category->name }}</span>
                     </div>
-                    <div class="flex items-center gap-[6px]">
-                        <img src="{{ asset('assets/images/icons/menu-board-green.svg') }}" alt="icon" class="size-5 shrink-0" />
-                        <p class="text-sm leading-[21px] text-obito-text-secondary">{{ $course->content_count }} Lessons</p>
+
+                    <div class="flex justify-center sm:justify-start items-center gap-2 text-mizu-text text-sm">
+                        <img src="{{ asset('assets/images/icons/menu-board-green.svg') }}" class="size-5" alt="">
+                        <span>{{ $course->content_count }} Lessons</span>
                     </div>
                 </div>
             </div>
-            <div class="buttons grid grid-cols-2 gap-[12px]">
+
+            <!-- Buttons -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <a href="#"
-                    class="border border-obito-grey rounded-full py-[10px] flex justify-center items-center hover:border-obito-green transition-all duration-300">
-                    <span class="font-semibold">Get Guidelines</span>
+                    class="rounded-full border border-mizu-divider py-3 flex justify-center font-semibold
+                      hover:border-mizu-primary hover:text-mizu-primary transition-all">
+                    Get Guidelines
                 </a>
+
                 <a href="{{ route('dashboard.course.learning', [
                     'course' => $course->slug,
                     'courseSection' => $firstSectionId,
                     'sectionContent' => $firstContentId,
                 ]) }}"
-                    class="text-white rounded-full py-[10px] flex justify-center items-center bg-obito-green hover:drop-shadow-effect transition-all duration-300">
-                    <span class="font-semibold">Start Learning</span>
+                    class="rounded-full bg-mizu-primary text-white py-3 flex justify-center font-semibold
+                      hover:bg-mizu-primary-dark transition-all">
+                    Start Learning
                 </a>
             </div>
         </main>
     </div>
+
 
 @endsection
