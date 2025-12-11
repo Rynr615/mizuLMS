@@ -19,7 +19,7 @@ return new class extends Migration
             $table->foreignId('pricing_id')->constrained()->onDelete('cascade');
 
             $table->unsignedInteger('sub_total_amount');
-            $table->unsignedInteger('grand_total_amount');
+            $table->unsignedInteger('grand_total_amount'); // unsignedInteger -> menyimpan bilangan bulat non negatif ( > 0 )
             $table->unsignedInteger('total_tax_amount');
 
             $table->boolean('is_paid');
@@ -30,8 +30,7 @@ return new class extends Migration
 
             $table->date('started_at');
             $table->date('ended_at');
-            
-            $table->softDeletes(); 
+            $table->softDeletes();
             $table->timestamps();
         });
     }

@@ -70,12 +70,6 @@
                     <div class="flex flex-wrap gap-4 items-center">
                         <p class="flex items-center gap-2">
                             <img src="{{ asset('assets/images/icons/briefcase-green.svg') }}" class="w-6" alt="icon">
-                            <span class="font-semibold text-sm">Ready to Work</span>
-                        </p>
-
-                        <p class="flex items-center gap-2">
-                            <img src="{{ asset('assets/images/icons/briefcase-green.svg') }}" class="w-6"
-                                alt="icon">
                             <span class="font-semibold text-sm">Beginner Level</span>
                         </p>
                     </div>
@@ -195,37 +189,38 @@
                         <div id="instructors"
                             class="flex flex-col border border-obito-grey rounded-[20px] p-6 bg-white shadow-sm gap-5">
                             <h3 class="font-semibold text-lg">Course Instructors</h3>
-
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
                                 @foreach ($course->courseMentors as $mentor)
-                                    <div
-                                        class="instructors-card flex flex-col border border-obito-grey rounded-[20px] p-5 bg-white shadow-sm gap-4">
-                                        <div class="flex items-center justify-between">
-                                            <div class="flex items-center gap-3">
-                                                <div class="w-[50px] h-[50px] rounded-full overflow-hidden shrink-0">
-                                                    <img src="{{ Storage::url($mentor->mentor->photo) }}" alt="photo"
-                                                        class="w-full h-full object-cover">
+                                    @if ($mentor->is_active)
+                                        <div
+                                            class="instructors-card flex flex-col border border-obito-grey rounded-[20px] p-5 bg-white shadow-sm gap-4">
+                                            <div class="flex items-center justify-between">
+                                                <div class="flex items-center gap-3">
+                                                    <div class="w-[50px] h-[50px] rounded-full overflow-hidden shrink-0">
+                                                        <img src="{{ Storage::url($mentor->mentor->photo) }}"
+                                                            alt="photo" class="w-full h-full object-cover">
+                                                    </div>
+
+                                                    <div>
+                                                        <p class="font-semibold">{{ $mentor->mentor->name }}</p>
+                                                        <p class="text-sm text-obito-text-secondary">
+                                                            {{ $mentor->mentor->occupation }}</p>
+                                                    </div>
                                                 </div>
 
-                                                <div>
-                                                    <p class="font-semibold">{{ $mentor->mentor->name }}</p>
-                                                    <p class="text-sm text-obito-text-secondary">
-                                                        {{ $mentor->mentor->occupation }}</p>
+                                                <div class="flex items-center">
+                                                    @for ($i = 0; $i < 5; $i++)
+                                                        <img src="{{ asset('assets/images/icons/Star 1.svg') }}"
+                                                            class="w-5 shrink-0" alt="icon">
+                                                    @endfor
                                                 </div>
                                             </div>
 
-                                            <div class="flex items-center">
-                                                @for ($i = 0; $i < 5; $i++)
-                                                    <img src="{{ asset('assets/images/icons/Star 1.svg') }}"
-                                                        class="w-5 shrink-0" alt="icon">
-                                                @endfor
-                                            </div>
+                                            <hr class="border-obito-grey">
+
+                                            <p class="leading-7">{{ $mentor->about }}</p>
                                         </div>
-
-                                        <hr class="border-obito-grey">
-
-                                        <p class="leading-7">{{ $mentor->about }}</p>
-                                    </div>
+                                    @endif
                                 @endforeach
                             </div>
                         </div>
@@ -249,7 +244,8 @@
                                             class="flex items-center gap-3 border border-obito-grey rounded-[50px] py-3 px-4 bg-white">
                                             <img src="{{ asset('assets/images/icons/menu-board.svg') }}" class="size-6"
                                                 alt="icon">
-                                            <p class="font-semibold">{{ $content->name }}</p>
+                                            <a href="{{ route('dashboard.course.learning', ['course' => $course->slug, 'courseSection' => $section->id, 'sectionContent' => $content->id]) }}"
+                                                class="font-semibold">{{ $content->name }}</a>
                                         </div>
                                     @endforeach
                                 </div>

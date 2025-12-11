@@ -148,7 +148,6 @@
 @push('after-styles')
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/default.min.css">
     <link rel="stylesheet" href="{{ asset('css/content.css') }}">
-    </link>
 @endpush
 @push('after-scripts')
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"

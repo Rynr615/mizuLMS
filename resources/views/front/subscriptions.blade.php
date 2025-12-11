@@ -134,7 +134,7 @@
                         <h3 class="font-bold text-xl text-mizu-dark mb-2">No Subscriptions Yet</h3>
                         <p class="text-mizu-text text-center max-w-md mb-6">You haven't purchased any subscription packages
                             yet. Start learning by choosing a plan!</p>
-                        <a href="#"
+                        <a href="{{ route('front.pricing') }}"
                             class="px-6 py-3 bg-gradient-to-r from-mizu-primary to-mizu-primary-dark text-white font-semibold rounded-xl hover:shadow-lg hover:shadow-mizu-primary/30 transition-all duration-300">
                             Browse Plans
                         </a>

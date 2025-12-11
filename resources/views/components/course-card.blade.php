@@ -45,14 +45,6 @@
                     {{ $course->content_count }} Lessons
                 </span>
             </p>
-
-            <p class="flex items-center gap-[6px]">
-                <img src="{{ asset('assets/images/icons/briefcase-green.svg') }}" class="flex shrink-0 w-5"
-                    alt="icon">
-                <span class="text-sm text-gray-500">
-                    Ready to Work
-                </span>
-            </p>
         </div>
     </div>
 </a>

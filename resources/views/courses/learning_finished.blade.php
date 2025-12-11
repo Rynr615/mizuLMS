@@ -21,7 +21,7 @@
             <!-- Title & Description -->
             <div class="flex flex-col gap-3 items-center text-center">
                 <h1 class="font-bold text-[24px] md:text-[28px] leading-[36px] md:leading-[42px] text-mizu-dark">
-                    What a Day! Now<br>You’re Ready to Work
+                    What a Day! Now<br>You Have Completed the Lessons.
                 </h1>
                 <p class="text-mizu-text leading-[26px] text-[15px] md:text-base max-w-[460px]">
                     Anda telah menyelesaikan materi kelas dengan baik. Selanjutnya,
